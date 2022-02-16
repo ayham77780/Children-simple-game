@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+
+
+
+<head>
+
+	<title>My Game</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+</head>
+
+
+
+<head>
+
+	<title>My Game</title>
+	<link rel="stylesheet" type="text/css" href="game.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+
+</head>
+
+<body>
+	<div id="loading" class="hidden">
+<i class="fa fa-spinner" aria-hidden="true" id="spinner2"></i>
+		<p class="glow">Loading</p>
+	</div>
+
+<div id="welcome" class="hidden">
+	<p class="glow">Welcome</p>
+
+	<i class="fa fa-spinner" aria-hidden="true" id="spinner"></i>
+	<button id="enter">Enter</button>
+</div>
+
+<div id="menu" class="hidden">
+	<button id="startGame" class="firstbtn">Start Game</button>
+	<button id="credits">Credits</button>
+	<button id="quit">Quit</button>
+</div>
+
+<div id="bravo" class="hidden">
+	
+	<p id="bravotxt">Bravo</p>
+
+</div>
+
+<div id="levels" class="hidden">
+	<button class="levelBtn">Level 1</button>
+	<button class="levelBtn">Level 2</button>
+	<button class="levelBtn">Level 3</button>
+	<button id="back1">Back</button>
+	
+</div>
+
+<div class="hidden level">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl-5ZToQGrz1fmtbIPRgtq6c_aWvt6YJj3uA&usqp=CAU" 
+	class="t1 notcorrect">
+	<img src="https://media.istockphoto.com/photos/flying-cat-picture-id1185861961?k=20&m=1185861961&s=612x612&w=0&h=2GT4Li_o8NBA6_XfRdRWoONa_k-_XZzf4rfXz5wso9o=" class="correct">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQE1HdR7onaywNEiRERbyr4eZb9FVGEqY8HuA&usqp=CAU" class="notcorrect">
+	<p class="leveltxt">A cat is jumping</p>
+</div>
+
+<div class="hidden level">
+	<img src="https://www.petmd.com/sites/default/files/styles/article_image/public/sick-dog-shutterstock_92582179.jpg?itok=DAq8jmjj" class="t1 notcorrect">
+	<img src="https://media.istockphoto.com/photos/puppy-running-at-the-park-picture-id1184654849?k=20&m=1184654849&s=612x612&w=0&h=46xjmS9WDi02Po5FopGJHyDVXlQY-2ztPrOg1pPffDA=" class="notcorrect">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSpEiXXlupZfLaTcVRB-quWhPo9zTOabYsyA&usqp=CAU" class="correct">
+	<p class="leveltxt">A dog is eating</p>
+</div>
+
+
+<div class="hidden level">
+	<img src="https://www.verywellfamily.com/thmb/MOJLz_plAxlZDshjQFIzsEyKeFU=/500x350/filters:no_upscale():max_bytes(150000):strip_icc()/Getty_first_grade_class_students_raising_hands_smiling_LARGE_Christopher-Futcher-574b53845f9b5851654693f2.jpg" class="t1 correct">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTlKyqhT5NKuaf6Iq73_rJ541eMW7mrDvRyeA&usqp=CAU" class="notcorrect">
+	<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTIK3WJ31OKw5AkitWEmH-TYMpnRidKmcqcSw&usqp=CAU" class="notcorrect">
+	<p class="leveltxt">Students at school</p>
+</div>
+
+
+<div id="credits-div" class="hidden">
+	<p class="hidden">email : ayham77780@gmail.com</p>
+	<p class="hidden">Thank you for playing</p>
+
+	<p class="hidden">Designed by Ayham Suliman</p>
+	<p class="hidden">This is a simple game for children</p>
+	
+</div>
+
+<div id="notcorrect" class="hidden">
+
+	<p id="wrong">Try again</p>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+  window.addEventListener('load', load1);
+
+	/* menu program*/
+	function load1() {
+		$('#loading').fadeIn(3000, function() {
+			$('#loading').fadeOut(2000, function() {
+				$('#welcome').fadeIn(1000);
+			});
+		});
+	}
+
+  $('#enter').click(function() {
+  	$('#welcome').fadeOut(1000, function() {
+  		$('#menu').fadeIn(1000);
+  	});
+  }); 
+
+  $('#quit').click(function() {
+  	$('#menu').fadeOut(700, function() {
+  		$('#welcome').fadeIn(700);
+  	});
+  });
+
+  $('#startGame').click(function() {
+  	$('#menu').fadeOut(700, function() {
+  		$('#levels').fadeIn(700);
+  	});
+  });
+
+  $('#back1').click(function() {
+  	$('#levels').fadeOut(700, function() {
+  		$('#menu').fadeIn(700);
+  	});
+  });
+
+
+  $('#credits').click(function() {
+  	$('#menu').fadeOut(700, function() {
+  		$('#credits-div').fadeIn(700, function() {
+  			scrollUp();
+  			setTimeout(function() {
+
+  				$('#credits-div').fadeOut(700, function() {
+  					$('#menu').fadeIn(700);
+  				});
+  			}, 23000);
+  		});
+  	});
+  });
+
+
+  /* scrollUp function */
+function scrollUp(){
+ 
+ const creditsP = document.querySelectorAll('#credits-div p');
+ for (let i=0; i<creditsP.length; ++i) {
+ creditsP[i].style.display = 'block';	
+ creditsP[i].style.animation = 'scrollUp 40s 1';
+
+ }
+
+ }
+
+ /* levels program */
+function correctSolve() {
+	 const imgs = document.querySelectorAll('div img');
+ for (let i=0; i<imgs.length; ++i) {
+ 	imgs[i].addEventListener('click', function() {
+
+ 		if (imgs[i].classList.contains('correct')){
+ 			$('div:visible').fadeOut(600, function() {
+ 			$('#bravo').fadeIn(600, function() {
+ 				setTimeout(function() {
+ 					$('#bravo').fadeOut(600, function() {
+ 						$('#levels').fadeIn(600);
+ 					});
+ 				}, 4000);
+ 			});
+ 		});
+ 		}
+
+ 		else if (imgs[i].classList.contains('notcorrect')) {
+ 			$('div:visible').fadeOut(600, function() {
+ 				$('#notcorrect').fadeIn(600, function() {
+ 					setTimeout(function() {
+ 			$('#notcorrect').fadeOut(600, function() {
+ 				$('#levels').fadeIn(600);
+ 			});
+ 					}, 3000);
+ 				});
+ 			});
+ 		}
+ 		
+ 	});
+ }
+} 
+
+correctSolve();
+
+/* level menu */
+
+function levelSelect() {
+const levels = document.querySelectorAll('div.level');
+const levelBtn = document.querySelectorAll('button.levelBtn');
+for (let i=0; i < 3; ++i) {
+	levelBtn[i].addEventListener('click', function() {
+
+		$('div:visible').fadeOut(600, function() {
+		const levelV = levels[i];
+		$(levelV).fadeIn(600);
+		});
+
+	});
+}
+
+}
+
+levelSelect();
+
+
+</script>
+
+</body>
+
+
+
+
+
+</html>
